@@ -52,3 +52,6 @@ Here are my achievement badges that showcase my consistency streaks:
 
 <img width="434" height="419" alt="image" src="https://github.com/user-attachments/assets/9c47c540-d57c-4fdb-b263-f1ca1eac02d9" />
 
+---
+My Dashboard
+<img width="776" height="411" alt="image" src="https://github.com/user-attachments/assets/c01b023b-1543-4713-b6fb-ca0a46351237" />
