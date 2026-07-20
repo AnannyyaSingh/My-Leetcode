@@ -50,8 +50,5 @@ Collaboration makes learning more fun. 💡
 🏆 Progress Badges
 Here are my achievement badges that showcase my consistency streaks:
 
-https://img.shields.io/badge/%F0%9F%94%A5-50%20Days-orange  
-https://img.shields.io/badge/%F0%9F%94%A5-50%20Days-orange  
-https://img.shields.io/badge/%F0%9F%94%A5-100%20Days-red  
-https://img.shields.io/badge/%F0%9F%94%A5-200%20Days-purple  
-https://img.shields.io/badge/%F0%9F%94%A5-365%20Days-blue
+<img width="434" height="419" alt="image" src="https://github.com/user-attachments/assets/9c47c540-d57c-4fdb-b263-f1ca1eac02d9" />
+
