@@ -1,40 +1,51 @@
 class Solution {
 public:
     bool canPartitionGrid(vector<vector<int>>& grid) {
-        int m = grid.size(), n = grid[0].size();
+        
+        int start=0;
+        int end=grid.size()-1;
 
-        vector<long long> rowSum(m, 0), colSum(n, 0);
-        long long total = 0;
+        long usum=0;
+        long bsum=0;
+        while(start <= end){
 
-        // Compute rowSum, colSum, total
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                rowSum[i] += grid[i][j];
-                colSum[j] += grid[i][j];
-                total += grid[i][j];
+            if(usum <= bsum){
+                for(int i=0;i<grid[start].size();i++){
+                    usum+=grid[start][i];
+                }
+                start++;
+            }else{
+                for(int i=0;i<grid[end].size();i++){
+                    bsum+=grid[end][i];
+                }
+                end--;
             }
         }
-
-        if (total % 2) return false;
-
-        if (check(rowSum, total)) return true;
-
-        if (check(colSum, total)) return true;
-
-        return false;
-    }
-
-    bool check(vector<long long>& arr, long long total) {
-        long long left = arr[0];
-        long long right = total - left;
-
-        for (int i = 1; i < arr.size(); i++) {
-            if (left == right) return true;
-            else if(left>right) return false;
-            left += arr[i];
-            right -= arr[i];
+        if(usum==bsum){
+            return true;
         }
-        
+        usum=0;
+        bsum=0;
+
+        start=0;
+        end=grid[0].size()-1;
+        while(start <= end){
+
+            if(usum <= bsum){
+                for(int i=0;i<grid.size();i++){
+                    usum+=grid[i][start];
+                }
+                start++;
+            }else{
+                for(int i=0;i<grid.size();i++){
+                    bsum+=grid[i][end];
+                }
+                end--;
+            }
+        }
+        if(usum==bsum){
+            return true;
+        }
         return false;
     }
 };
