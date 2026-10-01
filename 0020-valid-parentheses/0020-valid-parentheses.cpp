@@ -1,20 +1,25 @@
 class Solution {
 public:
     bool isValid(string s) {
-        stack<char> st;
+        if (s.length() % 2 != 0) return false;
 
-        for(char &ch : s){
-            if(ch == '(') st.push(')');
+        vector<char> stack(s.length());
+        int head = 0;
 
-            else if(ch == '{') st.push('}');
-
-            else if(ch == '[') st.push(']');
-
-            else if(st.empty() || st.top() != ch){
-                return false;
+        for (char c : s) {
+            if (c == '(') {
+                stack[head++] = ')';
+            } else if (c == '{') {
+                stack[head++] = '}';
+            } else if (c == '[') {
+                stack[head++] = ']';
+            } else {
+                if (head == 0 || stack[--head] != c) {
+                    return false;
+                }
             }
-            else st.pop();
         }
-        return st.empty();
+
+        return head == 0;
     }
 };
