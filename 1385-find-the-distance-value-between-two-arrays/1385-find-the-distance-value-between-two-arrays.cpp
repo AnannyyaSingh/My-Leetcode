@@ -1,9 +1,21 @@
 class Solution {
 public:
-    int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
-        auto far = [&](int a) {  // no b in [a - d, a + d]
-            return ranges::all_of(arr2, [&](int b) { return abs(a - b) > d; });
-        };
-        return ranges::count_if(arr1, far);
+    int findTheDistanceValue(vector<int>& arr1,
+                             vector<int>& arr2, int d) {
+
+        sort(arr2.begin(), arr2.end());
+
+        int ans = 0;
+
+        for(int a : arr1) {
+
+            if(lower_bound(arr2.begin(), arr2.end(), a - d) ==
+               upper_bound(arr2.begin(), arr2.end(), a + d)) {
+
+                ans++;
+            }
+        }
+
+        return ans;
     }
 };
